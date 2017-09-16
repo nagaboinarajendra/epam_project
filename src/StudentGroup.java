@@ -63,6 +63,12 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void addFirst(Student student) {
 		// Add your implementation here
+		/*if(students == null){  
+          throw new IllegalArgumentException();
+        }
+        else{
+        	students.add(student,0);
+        } */
 	}
 
 	@Override
@@ -73,11 +79,28 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void add(Student student, int index) {
 		// Add your implementation here
+		if(index<0 || index>=students.length){
+			throw new IllegalArgumentException();
+		}
+		else if(students == null){  
+          throw new IllegalArgumentException();
+        } 
+        else{
+        	students[index] = student;
+        }
 	}
 
 	@Override
 	public void remove(int index) {
-		// Add your implementation here
+		if(index<0 || index>=students.length){
+			throw new IllegalArgumentException();
+		}
+		else if(students == null){  
+          throw new IllegalArgumentException();
+        } 
+        else{
+        	students[index] = null;
+        }
 	}
 
 	@Override
@@ -108,11 +131,27 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void bubbleSort() {
 		// Add your implementation here
+		/*boolean swapped = true;
+	    while (swapped) {
+	       swapped = false;
+	       for(int i=1; i<students.length; i++) {
+	           student temp=0;
+	           if(students[i-1] > students[i]) {
+	               temp = students[i-1];
+	                students[i-1] = students[i];
+	                students[i] = temp;
+	                swapped = true;
+	            }
+	        }
+	    }*/
 	}
 
 	@Override
 	public Student[] getByBirthDate(Date date) {
 		// Add your implementation here
+		if(date==null){
+			throw new IllegalArgumentException();
+		}
 		return null;
 	}
 
