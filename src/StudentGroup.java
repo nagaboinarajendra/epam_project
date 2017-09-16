@@ -68,11 +68,11 @@ public class StudentGroup implements StudentArrayOperation {
         }
         else{	
         		int index=0;
-		       	for(int i=0; i< students.length-1; i++) {
+		       	for(int i=0; i< students.length; i++) {
 
 		        if (i == index){
 
-		            for (int j = students.length-1; j >= index; j-- ){
+		            for (int j = students.length; j >= index; j-- ){
 		                students[j]= students[j-1];
 		            }
 
@@ -104,11 +104,11 @@ public class StudentGroup implements StudentArrayOperation {
           throw new IllegalArgumentException();
         } 
         else{
-	        for(int i=0; i< students.length-1; i++) {
+	        for(int i=0; i< students.length; i++) {
 
 	        if (i == index){
 
-	            for (int j = students.length-1; j >= index; j-- ){
+	            for (int j = students.length; j >= index; j-- ){
 	                students[j]= students[j-1];
 	            }
 
@@ -128,7 +128,7 @@ public class StudentGroup implements StudentArrayOperation {
           throw new IllegalArgumentException();
         } 
         else{
-	        for(int i=0; i< students.length-1; i++) {
+	        for(int i=0; i< students.length; i++) {
 
 	        if (i == index){
 
@@ -146,6 +146,23 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void remove(Student student) {
 		// Add your implementation here
+		if(students == null){  
+          throw new IllegalArgumentException();
+      }else{
+      		for(int i=0; i< students.length; i++) {
+
+	        if (students[i] == student){
+
+	            for (int j = i; j < students.length; j++ ){
+	                students[j]= students[j+1];
+	            }
+	            students[students.length]=null;
+	            return;
+	        }
+
+    		}
+    		throw new IllegalArgumentException("Student not exist");
+      }
 	}
 
 	@Override
@@ -157,7 +174,7 @@ public class StudentGroup implements StudentArrayOperation {
 		else{
 			for(int i=0;i<students.length;i++){
 				if(i==index){
-					for(int j=i;j<students.length;j++){
+					for(int j=i+1;j<students.length;j++){
 						students[j]=null;
 					}
 				}
@@ -168,6 +185,7 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void removeFromElement(Student student) {
 		// Add your implementation here
+
 	}
 
 	@Override
