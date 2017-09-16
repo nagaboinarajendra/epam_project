@@ -185,17 +185,49 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void removeFromElement(Student student) {
 		// Add your implementation here
+		if(students == null){  
+          throw new IllegalArgumentException();
+        }else{
+        	for(int i=0;i<students.length;i++){
+				if(students[i]==student){
+					for(int j=i+1;j<students.length;j++){
+						students[j]=null;
+					}
+				}
+			}
+
+        }
 
 	}
 
 	@Override
 	public void removeToIndex(int index) {
 		// Add your implementation here
+		if(students == null){  
+          throw new IllegalArgumentException();
+        }else{
+        	for(int i=0;i<students.length;i++){
+        		students[i]=null;
+        		if(i==index){
+        			return;
+        		}
+        	}
+        }
 	}
 
 	@Override
 	public void removeToElement(Student student) {
 		// Add your implementation here
+		if(students == null){  
+          throw new IllegalArgumentException();
+        }else{
+        	for(int i=0;i<students.length;i++){
+        		students[i]=null;
+        		if(students[i]==student){
+        			return;
+        		}
+        	}
+        }
 	}
 
 	@Override
@@ -205,8 +237,8 @@ public class StudentGroup implements StudentArrayOperation {
 	    while (swapped) {
 	       swapped = false;
 	       for(int i=1; i<students.length; i++) {
-	           student temp=0;
-	           if(students[i-1] > students[i]) {
+	           int temp=0;
+	           if((students[i-1]) > (students[i])) {
 	               temp = students[i-1];
 	                students[i-1] = students[i];
 	                students[i] = temp;
@@ -234,6 +266,9 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public Student[] getNearBirthDate(Date date, int days) {
 		// Add your implementation here
+		if(date==null){
+			throw new IllegalArgumentException();
+		}
 		return null;
 	}
 
