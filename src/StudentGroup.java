@@ -63,17 +63,35 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void addFirst(Student student) {
 		// Add your implementation here
-		/*if(students == null){  
+		if(students == null){  
           throw new IllegalArgumentException();
         }
-        else{
-        	students.add(student,0);
-        } */
+        else{	
+        		int index=0;
+		       	for(int i=0; i< students.length-1; i++) {
+
+		        if (i == index){
+
+		            for (int j = students.length-1; j >= index; j-- ){
+		                students[j]= students[j-1];
+		            }
+
+		            students[index]=student;
+		        }
+
+    			}
+        }
 	}
 
 	@Override
 	public void addLast(Student student) {
 		// Add your implementation here
+		if(students == null){  
+          throw new IllegalArgumentException();
+        }else {
+        	int n=students.length;
+        	students[n+1]=student;
+        } 
 	}
 
 	@Override
@@ -86,7 +104,18 @@ public class StudentGroup implements StudentArrayOperation {
           throw new IllegalArgumentException();
         } 
         else{
-        	students[index] = student;
+	        for(int i=0; i< students.length-1; i++) {
+
+	        if (i == index){
+
+	            for (int j = students.length-1; j >= index; j-- ){
+	                students[j]= students[j-1];
+	            }
+
+	            students[index]=student;
+	        }
+
+    		}
         }
 	}
 
