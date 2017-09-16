@@ -13,7 +13,7 @@ public class Student implements Comparable {
 	/**
 	 * student id
 	 */
-	private int id;
+	private int id
 
 	/**
 	 * student name and surname separated by the whitespace for example:
